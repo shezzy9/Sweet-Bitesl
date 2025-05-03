@@ -4,7 +4,7 @@
     <p>We would love to hear from you! Whether you have a question about our menu, want to place an order, or just want to say hi, we're here for you.</p>
 
     <form
-    action="https://formspree.io/f/manoeoge"
+    action="https://formspree.io/f/xovjyann"
     method="POST"
   >
     <label>
@@ -15,56 +15,125 @@
       Your message:
       <textarea name="message"></textarea>
     </label>
-    <!-- your other form fields go here -->
+   
     <button type="submit">Send</button>
   </form>
 </section>
 
 <style>
-    .contact-section {
+
+.contact-section {
+  background: linear-gradient(135deg, #f0f4ff, #dbe7ff);
   padding: 60px 20px;
-  text-align: center;
+  border-radius: 20px;
+  max-width: 700px;
+  margin: 40px auto;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
 .contact-section h2 {
-  font-size: 32px;
-  margin-bottom: 15px;
+  font-size: 2.5rem;
+  text-align: center;
+  color: #2b4eff;
+  margin-bottom: 10px;
 }
 
 .contact-section p {
-  max-width: 700px;
-  margin: 0 auto 30px;
-  font-size: 18px;
+  text-align: center;
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 20px;
 }
 
 .contact-section form {
-  max-width: 600px;
-  margin: 0 auto;
   display: flex;
   flex-direction: column;
+  gap: 15px;
 }
 
-.contact-section input,
+.contact-section label {
+  font-size: 1rem;
+  color: #333;
+  font-weight: 500;
+}
+
+.contact-section input[type="email"],
 .contact-section textarea {
-  padding: 12px;
-  margin-bottom: 15px;
+  width: 100%;
+  padding: 12px 15px;
+  border-radius: 10px;
   border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 16px;
+  background-color: #fff;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-section input[type="email"]:focus,
+.contact-section textarea:focus {
+  border-color: #2b4eff;
+  box-shadow: 0 0 8px rgba(43, 78, 255, 0.3);
+  outline: none;
+}
+
+.contact-section textarea {
+  resize: vertical;
+  min-height: 120px;
 }
 
 .contact-section button {
-  padding: 12px;
-  background-color: #ff7f7f;
-  color: white;
+  padding: 12px 20px;
   border: none;
-  border-radius: 6px;
-  font-size: 18px;
+  border-radius: 50px;
+  background: linear-gradient(135deg, #2b4eff, #5a7bff);
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
   cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
 }
 
 .contact-section button:hover {
-  background-color: #ff4f4f;
+  background: linear-gradient(135deg, #1d3bff, #4a6aff);
+  transform: translateY(-2px);
 }
-
 </style>
+
+<script>
+  
+  const form = document.querySelector('.contact-section form');
+  const button = form.querySelector('button');
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault(); // Prevent default form submission
+
+    button.disabled = true;
+    button.textContent = 'Sending...';
+
+    const formData = new FormData(form);
+
+    fetch(form.action, {
+      method: form.method,
+      body: formData,
+      headers: {
+        'Accept': 'application/json'
+      }
+    }).then(response => {
+      if (response.ok) {
+        form.reset();
+        button.textContent = 'Send';
+        button.disabled = false;
+        alert('Thank you! Your message has been sent.');
+      } else {
+        response.json().then(data => {
+          alert(data.error || 'Oops! Something went wrong.');
+          button.textContent = 'Send';
+          button.disabled = false;
+        });
+      }
+    }).catch(error => {
+      alert('Oops! There was a problem submitting your form.');
+      button.textContent = 'Send';
+      button.disabled = false;
+    });
+  });
+</script>
