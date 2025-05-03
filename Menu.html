@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sweet Bites-Menu</title>
+</head>
+<style>
+nav ul{
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    background: #ffb3b3;
+    padding: 10px 20px;
+    justify-content: center;
+}
+nav a{
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+}
+
+.menu-section {
+  padding: 40px;
+  text-align: center;
+}
+
+.menu-items {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.menu-item {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.menu-item img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.menu-item h3 {
+  margin: 15px 0 5px;
+  font-size: 20px;
+}
+
+.menu-item p {
+  margin-bottom: 15px;
+  color: #ff5722;
+  font-weight: bold;
+}
+
+.menu-item:hover {
+  transform: translateY(-5px);
+}
+
+</style>
+
+
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="Menu.html">Menu</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+         </ul>
+    </nav>
+
+    <section class="menu-section">
+        <h2>Our Menu</h2>
+        <div class="menu-items">
+          <div class="menu-item">
+            <img src="download.jpeg" alt="Chocolate Cake">
+            <h3>Chocolate Cake</h3>
+            <p>₹450</p>
+          </div>
+          <div class="menu-item">
+            <img src="download (1).jpeg" alt="Cupcake">
+            <h3>Cupcake</h3>
+            <p>₹150</p>
+          </div>
+          <div class="menu-item">
+            <img src="butter.jpeg" alt="butter Cokies">
+            <h3>Butter Cookies</h3>
+            <p>₹500</p>
+          </div>
+          <div class="menu-item">
+            <img src="Fudge.jpeg" alt="Brownie">
+            <h3>Brownie</h3>
+            <p>₹200</p>
+          </div>
+          <div class="menu-item">
+            <img src="red.jpeg" alt="Red Velvet Cake">
+            <h3>Red Velvet Cake</h3>
+            <p>₹600</p>
+          </div>
+          <div class="menu-item">
+            <img src="Rasgulla.jpeg" alt="Rasgulla">
+            <h3>Rasgulla</h3>
+            <p>₹100</p>
+          </div>
+          <div class="menu-item">
+            <img src="strawberry cupcake.jpeg" alt="Strawberry Cake">
+            <h3>Strawberry Cake</h3>
+            <p>₹100</p>
+          </div>
+          <div class="menu-item">
+            <img src="kaju katli.jpeg" alt="Kaju Katli">
+            <h3>Kaju Katli</h3>
+            <p>₹100</p>
+          </div>
+          <div class="menu-item">
+            <img src="French.jpeg" alt="French macaron">
+            <h3>French Macaron</h3>
+            <p>₹100</p>
+          </div>
+        
+        </div>
+      </section>
+      
+</body>
+</html>
